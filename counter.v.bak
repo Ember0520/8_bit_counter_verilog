@@ -1,0 +1,48 @@
+/*
+本实验的任务是设计一个8位的计数器，步长的改变量要求从0～15，
+实验中用拨挡开关模块的K1～K4来作为步长改变量的输入，用K8来控制计数器的增减，具体要求为：
+当K8输入为高时，计数器为步长可变的加计数器；当K8输入为低时，计数器为步长可变的减计数器。
+计数器输出值用数码管来表示。实验中计数器的时钟频率为了便于眼睛观察， 用1Hz的时钟。
+*/
+module counter(
+    input wire clk, // 1Hz时钟输入
+    input wire k8, // 控制增减的开关
+    input wire [3:0] k1k4, // 步长改变量输入
+    output reg [7:0] count // 计数器输出值
+);
+
+	reg [3:0] step_size; // 步长
+
+	always @ (posedge clk) 
+		begin
+			 if(k8) 
+			 begin
+				  count <= count + step_size;
+			 end 
+			 else begin
+				  count <= count - step_size;
+			 end
+		end
+
+	always @ (k1k4) begin
+		 case(k1k4)
+			  4'b0000: step_size <= 4'b0000; // 步长0
+			  4'b0001: step_size <= 4'b0001; // 步长1
+			  4'b0010: step_size <= 4'b0010; // 步长2
+			  4'b0011: step_size <= 4'b0011; // 步长3
+			  4'b0100: step_size <= 4'b0100; // 步长4
+			  4'b0101: step_size <= 4'b0101; // 步长5
+			  4'b0110: step_size <= 4'b0110; // 步长6
+			  4'b0111: step_size <= 4'b0111; // 步长7
+			  4'b1000: step_size <= 4'b1000; // 步长8
+			  4'b1001: step_size <= 4'b1001; // 步长9
+			  4'b1010: step_size <= 4'b1010; // 步长10
+			  4'b1011: step_size <= 4'b1011; // 步长11
+			  4'b1100: step_size <= 4'b1100; // 步长12
+			  4'b1101: step_size <= 4'b1101; // 步长13
+			  4'b1110: step_size <= 4'b1110; // 步长14
+			  4'b1111: step_size <= 4'b1111; // 步长15
+		 endcase
+	end
+
+endmodule

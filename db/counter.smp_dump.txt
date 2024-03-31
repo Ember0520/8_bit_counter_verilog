@@ -1,0 +1,6 @@
+
+State Machine - |mux|sel_reg
+Name sel_reg.00 sel_reg.10 sel_reg.01 
+sel_reg.00 0 0 0 
+sel_reg.01 1 0 1 
+sel_reg.10 1 1 0 

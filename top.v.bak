@@ -1,0 +1,66 @@
+
+module counter(
+    input wire clk, // 1Hz时钟输入
+    input wire up_down, // 控制增减的开关
+    input wire [3:0] step, // 步长改变量输入
+	 //output reg [11:0] BCD_num
+    output reg [7:0] seg // 数码管显示
+);
+
+	reg [3:0] step_size; // 步长
+	reg [7:0] count; // 计数器输出值
+	wire [7:0] bin_count; // 将计数器值转为二进制
+	wire clk_1hz;			//中间连线信号
+	wire [3:0] data_disp;
+	wire [1:0] bit_disp;
+	reg [9:0] BCD_num;
+
+	always @ (posedge clk) 
+		begin
+			 if(up_down) 
+			 begin
+				  count <= count + step_size;
+			 end 
+			 else begin
+				  count <= count - step_size;
+			 end
+		end
+
+	always @ (step) 
+	begin
+		 case(step)
+			  4'b0000: step_size <= 4'b0000; // 步长0
+			  4'b0001: step_size <= 4'b0001; // 步长1
+			  4'b0010: step_size <= 4'b0010; // 步长2
+			  4'b0011: step_size <= 4'b0011; // 步长3
+			  4'b0100: step_size <= 4'b0100; // 步长4
+			  4'b0101: step_size <= 4'b0101; // 步长5
+			  4'b0110: step_size <= 4'b0110; // 步长6
+			  4'b0111: step_size <= 4'b0111; // 步长7
+			  4'b1000: step_size <= 4'b1000; // 步长8
+			  4'b1001: step_size <= 4'b1001; // 步长9
+			  4'b1010: step_size <= 4'b1010; // 步长10
+			  4'b1011: step_size <= 4'b1011; // 步长11
+			  4'b1100: step_size <= 4'b1100; // 步长12
+			  4'b1101: step_size <= 4'b1101; // 步长13
+			  4'b1110: step_size <= 4'b1110; // 步长14
+			  4'b1111: step_size <= 4'b1111; // 步长15
+		 endcase
+	end
+
+	bin2bcd changer(.bin_in(bin_count), .bcd_out(BCD_num));
+	//分频模块
+	freq #(.cnt_num(4)) freq_dut(	//强制传参：#(.cnt_num(4))
+		.clk(clk), 
+		.rst_n(rst_n), 
+		.clk_1hz(clk_1hz)
+	);
+	
+	mux mux3(.sel(bit_disp),.ina(BCD_num[11:8]),.inb(BCD_num[7:4]),.inc(BCD_num[3:0]),.data_out(data_disp));  
+   
+	seg_sel seg_sel_decoder(.bit_disp(bit_disp),.seg_sel(seg));
+	
+   bcd_coder bcd(.yout(seg), .ain(data_disp));
+
+
+endmodule

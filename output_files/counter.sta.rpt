@@ -1,0 +1,769 @@
+TimeQuest Timing Analyzer report for counter
+Sun Mar 31 20:56:13 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Setup: 'freq:freq_dut|clk_1hz'
+ 13. Hold: 'clk'
+ 14. Hold: 'freq:freq_dut|clk_1hz'
+ 15. Minimum Pulse Width: 'clk'
+ 16. Minimum Pulse Width: 'freq:freq_dut|clk_1hz'
+ 17. Setup Times
+ 18. Hold Times
+ 19. Clock to Output Times
+ 20. Minimum Clock to Output Times
+ 21. Setup Transfers
+ 22. Hold Transfers
+ 23. Report TCCS
+ 24. Report RSKM
+ 25. Unconstrained Paths
+ 26. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                       ;
++--------------------+--------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version ;
+; Revision Name      ; counter                                                            ;
+; Device Family      ; Cyclone                                                            ;
+; Device Name        ; EP1C12Q240C8                                                       ;
+; Timing Models      ; Final                                                              ;
+; Delay Model        ; Slow Model                                                         ;
+; Rise/Fall Delays   ; Unavailable                                                        ;
++--------------------+--------------------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-20        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                       ;
++-----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------+
+; Clock Name            ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                   ;
++-----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------+
+; clk                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                   ;
+; freq:freq_dut|clk_1hz ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { freq:freq_dut|clk_1hz } ;
++-----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------+
+
+
++-------------------------------------------------------------+
+; Fmax Summary                                                ;
++------------+-----------------+-----------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name            ; Note ;
++------------+-----------------+-----------------------+------+
+; 162.47 MHz ; 162.47 MHz      ; clk                   ;      ;
+; 267.74 MHz ; 267.74 MHz      ; freq:freq_dut|clk_1hz ;      ;
++------------+-----------------+-----------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------------------+
+; Setup Summary                                  ;
++-----------------------+--------+---------------+
+; Clock                 ; Slack  ; End Point TNS ;
++-----------------------+--------+---------------+
+; clk                   ; -5.155 ; -143.171      ;
+; freq:freq_dut|clk_1hz ; -3.458 ; -16.670       ;
++-----------------------+--------+---------------+
+
+
++------------------------------------------------+
+; Hold Summary                                   ;
++-----------------------+--------+---------------+
+; Clock                 ; Slack  ; End Point TNS ;
++-----------------------+--------+---------------+
+; clk                   ; -1.598 ; -1.598        ;
+; freq:freq_dut|clk_1hz ; -0.310 ; -0.777        ;
++-----------------------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++------------------------------------------------+
+; Minimum Pulse Width Summary                    ;
++-----------------------+--------+---------------+
+; Clock                 ; Slack  ; End Point TNS ;
++-----------------------+--------+---------------+
+; clk                   ; -1.583 ; -93.843       ;
+; freq:freq_dut|clk_1hz ; -1.318 ; -15.816       ;
++-----------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                 ;
++--------+-----------------------+-----------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node             ; To Node               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------+-----------------------+--------------+-------------+--------------+------------+------------+
+; -5.155 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.118      ;
+; -5.155 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.118      ;
+; -5.155 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[20] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.118      ;
+; -5.155 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[21] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.118      ;
+; -5.155 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[22] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.118      ;
+; -5.155 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[23] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.118      ;
+; -5.155 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[24] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.118      ;
+; -5.155 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[25] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.118      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.151 ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 6.114      ;
+; -5.030 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.993      ;
+; -5.030 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.993      ;
+; -5.030 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[20] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.993      ;
+; -5.030 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[21] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.993      ;
+; -5.030 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[22] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.993      ;
+; -5.030 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[23] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.993      ;
+; -5.030 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[24] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.993      ;
+; -5.030 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[25] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.993      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -5.026 ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.989      ;
+; -4.975 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.938      ;
+; -4.975 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.938      ;
+; -4.975 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[20] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.938      ;
+; -4.975 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[21] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.938      ;
+; -4.975 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[22] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.938      ;
+; -4.975 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[23] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.938      ;
+; -4.975 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[24] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.938      ;
+; -4.975 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[25] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.938      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.971 ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.934      ;
+; -4.918 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.881      ;
+; -4.918 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.881      ;
+; -4.918 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[20] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.881      ;
+; -4.918 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[21] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.881      ;
+; -4.918 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[22] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.881      ;
+; -4.918 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[23] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.881      ;
+; -4.918 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[24] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.881      ;
+; -4.918 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[25] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.881      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.914 ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.877      ;
+; -4.897 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.860      ;
+; -4.897 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.860      ;
+; -4.897 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[20] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.860      ;
+; -4.897 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[21] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.860      ;
+; -4.897 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[22] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.860      ;
+; -4.897 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[23] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.860      ;
+; -4.897 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[24] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.860      ;
+; -4.897 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[25] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.860      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.893 ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[17] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.856      ;
+; -4.892 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[18] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.855      ;
+; -4.892 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[19] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.855      ;
+; -4.892 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[20] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.855      ;
+; -4.892 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[21] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.855      ;
+; -4.892 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[22] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.855      ;
+; -4.892 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[23] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.855      ;
+; -4.892 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[24] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.855      ;
+; -4.892 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[25] ; clk          ; clk         ; 1.000        ; 0.000      ; 5.855      ;
+; -4.888 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.851      ;
+; -4.888 ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 5.851      ;
++--------+-----------------------+-----------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'freq:freq_dut|clk_1hz'                                                                                                                ;
++--------+----------------------+----------------------+-----------------------+-----------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock          ; Latch Clock           ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+-----------------------+-----------------------+--------------+------------+------------+
+; -3.458 ; counter:cnt|count[6] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 7.353      ;
+; -3.295 ; counter:cnt|count[7] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 7.190      ;
+; -3.275 ; counter:cnt|count[4] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 7.170      ;
+; -3.238 ; counter:cnt|count[6] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 7.133      ;
+; -3.081 ; counter:cnt|count[6] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.976      ;
+; -3.075 ; counter:cnt|count[7] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.970      ;
+; -3.055 ; counter:cnt|count[4] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.950      ;
+; -2.975 ; counter:cnt|count[5] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.870      ;
+; -2.967 ; counter:cnt|count[6] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.862      ;
+; -2.936 ; counter:cnt|count[3] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.831      ;
+; -2.918 ; counter:cnt|count[7] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.813      ;
+; -2.898 ; counter:cnt|count[4] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.793      ;
+; -2.804 ; counter:cnt|count[7] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.699      ;
+; -2.784 ; counter:cnt|count[4] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.679      ;
+; -2.755 ; counter:cnt|count[5] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.650      ;
+; -2.735 ; mux:mux3|sel[0]      ; mux:mux3|sel[0]      ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 3.698      ;
+; -2.716 ; counter:cnt|count[3] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.611      ;
+; -2.598 ; counter:cnt|count[5] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.493      ;
+; -2.559 ; counter:cnt|count[3] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.454      ;
+; -2.484 ; counter:cnt|count[5] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.379      ;
+; -2.452 ; mux:mux3|sel[0]      ; mux:mux3|data_out[0] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 3.415      ;
+; -2.445 ; counter:cnt|count[3] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 6.340      ;
+; -2.320 ; mux:mux3|sel[0]      ; mux:mux3|data_out[1] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 3.283      ;
+; -2.095 ; mux:mux3|sel[1]      ; mux:mux3|data_out[3] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 3.058      ;
+; -2.070 ; mux:mux3|sel[1]      ; mux:mux3|data_out[1] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 3.033      ;
+; -1.966 ; mux:mux3|sel[1]      ; mux:mux3|data_out[0] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 2.929      ;
+; -1.923 ; mux:mux3|sel[1]      ; mux:mux3|data_out[2] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 2.886      ;
+; -1.922 ; mux:mux3|sel[0]      ; mux:mux3|data_out[3] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 2.885      ;
+; -1.787 ; mux:mux3|sel[1]      ; mux:mux3|sel[0]      ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 2.750      ;
+; -1.703 ; counter:cnt|count[2] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 5.598      ;
+; -1.483 ; counter:cnt|count[2] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 5.378      ;
+; -1.326 ; counter:cnt|count[2] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 5.221      ;
+; -1.216 ; counter:cnt|count[2] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 5.111      ;
+; -1.200 ; mux:mux3|sel[0]      ; mux:mux3|data_out[2] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 2.163      ;
+; -1.191 ; mux:mux3|sel[1]      ; mux:mux3|sel[1]      ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 2.154      ;
+; -0.950 ; counter:cnt|count[1] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 4.845      ;
+; -0.886 ; mux:mux3|sel[0]      ; mux:mux3|sel[1]      ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 1.000        ; 0.000      ; 1.849      ;
+; -0.730 ; counter:cnt|count[1] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 4.625      ;
+; -0.573 ; counter:cnt|count[1] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 4.468      ;
+; 0.122  ; counter:cnt|count[1] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 3.773      ;
+; 1.257  ; counter:cnt|count[0] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 1.000        ; 2.932      ; 2.638      ;
++--------+----------------------+----------------------+-----------------------+-----------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                           ;
++--------+-----------------------+-----------------------+-----------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node             ; To Node               ; Launch Clock          ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------+-----------------------+-----------------------+-------------+--------------+------------+------------+
+; -1.598 ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; clk         ; 0.000        ; 3.246      ; 1.887      ;
+; -1.098 ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; clk         ; -0.500       ; 3.246      ; 1.887      ;
+; 1.298  ; counter:cnt|count[7]  ; counter:cnt|count[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.313      ;
+; 1.321  ; counter:cnt|count[3]  ; counter:cnt|count[3]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.336      ;
+; 1.322  ; counter:cnt|count[2]  ; counter:cnt|count[2]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.337      ;
+; 1.323  ; freq:freq_dut|cnt[12] ; freq:freq_dut|cnt[12] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.338      ;
+; 1.323  ; freq:freq_dut|cnt[16] ; freq:freq_dut|cnt[16] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.338      ;
+; 1.326  ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[8]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.341      ;
+; 1.326  ; freq:freq_dut|cnt[13] ; freq:freq_dut|cnt[13] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.341      ;
+; 1.328  ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.343      ;
+; 1.329  ; freq:freq_dut|cnt[11] ; freq:freq_dut|cnt[11] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.344      ;
+; 1.329  ; freq:freq_dut|cnt[1]  ; freq:freq_dut|cnt[1]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.344      ;
+; 1.332  ; freq:freq_dut|cnt[3]  ; freq:freq_dut|cnt[3]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.347      ;
+; 1.333  ; freq:freq_dut|cnt[18] ; freq:freq_dut|cnt[18] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.348      ;
+; 1.335  ; freq:freq_dut|cnt[2]  ; freq:freq_dut|cnt[2]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.350      ;
+; 1.476  ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[9]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.491      ;
+; 1.476  ; freq:freq_dut|cnt[14] ; freq:freq_dut|cnt[14] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.491      ;
+; 1.480  ; counter:cnt|count[1]  ; counter:cnt|count[1]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.495      ;
+; 1.480  ; freq:freq_dut|cnt[10] ; freq:freq_dut|cnt[10] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.495      ;
+; 1.481  ; counter:cnt|count[0]  ; counter:cnt|count[0]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.496      ;
+; 1.481  ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[15] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.496      ;
+; 1.482  ; freq:freq_dut|cnt[4]  ; freq:freq_dut|cnt[4]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.497      ;
+; 1.482  ; freq:freq_dut|cnt[17] ; freq:freq_dut|cnt[17] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.497      ;
+; 1.487  ; freq:freq_dut|cnt[20] ; freq:freq_dut|cnt[20] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.502      ;
+; 1.487  ; freq:freq_dut|cnt[0]  ; freq:freq_dut|cnt[0]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.502      ;
+; 1.488  ; counter:cnt|count[6]  ; counter:cnt|count[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.503      ;
+; 1.488  ; freq:freq_dut|cnt[7]  ; freq:freq_dut|cnt[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.503      ;
+; 1.489  ; counter:cnt|count[5]  ; counter:cnt|count[5]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.504      ;
+; 1.493  ; freq:freq_dut|cnt[5]  ; freq:freq_dut|cnt[5]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.508      ;
+; 1.552  ; freq:freq_dut|cnt[24] ; freq:freq_dut|cnt[24] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.567      ;
+; 1.559  ; freq:freq_dut|cnt[19] ; freq:freq_dut|cnt[19] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.574      ;
+; 1.574  ; freq:freq_dut|cnt[21] ; freq:freq_dut|cnt[21] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.589      ;
+; 1.725  ; counter:cnt|count[4]  ; counter:cnt|count[4]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.740      ;
+; 1.921  ; counter:cnt|count[2]  ; counter:cnt|count[3]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.936      ;
+; 1.922  ; freq:freq_dut|cnt[16] ; freq:freq_dut|cnt[17] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.937      ;
+; 1.925  ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[9]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.940      ;
+; 1.925  ; freq:freq_dut|cnt[13] ; freq:freq_dut|cnt[14] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.940      ;
+; 1.927  ; freq:freq_dut|cnt[6]  ; freq:freq_dut|cnt[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.942      ;
+; 1.928  ; freq:freq_dut|cnt[1]  ; freq:freq_dut|cnt[2]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.943      ;
+; 1.928  ; freq:freq_dut|cnt[11] ; freq:freq_dut|cnt[12] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.943      ;
+; 1.930  ; freq:freq_dut|cnt[23] ; freq:freq_dut|cnt[23] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.945      ;
+; 1.931  ; freq:freq_dut|cnt[3]  ; freq:freq_dut|cnt[4]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.946      ;
+; 1.932  ; freq:freq_dut|cnt[18] ; freq:freq_dut|cnt[19] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.947      ;
+; 1.937  ; freq:freq_dut|cnt[25] ; freq:freq_dut|cnt[25] ; clk                   ; clk         ; 0.000        ; 0.000      ; 1.952      ;
+; 2.003  ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[10] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.018      ;
+; 2.003  ; freq:freq_dut|cnt[13] ; freq:freq_dut|cnt[15] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.018      ;
+; 2.009  ; freq:freq_dut|cnt[3]  ; freq:freq_dut|cnt[5]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.024      ;
+; 2.010  ; freq:freq_dut|cnt[18] ; freq:freq_dut|cnt[20] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.025      ;
+; 2.081  ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[11] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.096      ;
+; 2.081  ; freq:freq_dut|cnt[13] ; freq:freq_dut|cnt[16] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.096      ;
+; 2.085  ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[10] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.100      ;
+; 2.085  ; freq:freq_dut|cnt[14] ; freq:freq_dut|cnt[15] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.100      ;
+; 2.087  ; freq:freq_dut|cnt[3]  ; freq:freq_dut|cnt[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.102      ;
+; 2.088  ; freq:freq_dut|cnt[18] ; freq:freq_dut|cnt[21] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.103      ;
+; 2.089  ; counter:cnt|count[1]  ; counter:cnt|count[2]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.104      ;
+; 2.089  ; freq:freq_dut|cnt[10] ; freq:freq_dut|cnt[11] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.104      ;
+; 2.090  ; counter:cnt|count[0]  ; counter:cnt|count[1]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.105      ;
+; 2.090  ; freq:freq_dut|cnt[15] ; freq:freq_dut|cnt[16] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.105      ;
+; 2.091  ; freq:freq_dut|cnt[4]  ; freq:freq_dut|cnt[5]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.106      ;
+; 2.096  ; freq:freq_dut|cnt[22] ; freq:freq_dut|cnt[22] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.111      ;
+; 2.096  ; freq:freq_dut|cnt[0]  ; freq:freq_dut|cnt[1]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.111      ;
+; 2.096  ; freq:freq_dut|cnt[20] ; freq:freq_dut|cnt[21] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.111      ;
+; 2.097  ; counter:cnt|count[6]  ; counter:cnt|count[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.112      ;
+; 2.098  ; counter:cnt|count[5]  ; counter:cnt|count[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.113      ;
+; 2.102  ; freq:freq_dut|cnt[5]  ; freq:freq_dut|cnt[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.117      ;
+; 2.136  ; counter:cnt|count[3]  ; counter:cnt|count[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.151      ;
+; 2.136  ; counter:cnt|count[3]  ; counter:cnt|count[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.151      ;
+; 2.136  ; counter:cnt|count[3]  ; counter:cnt|count[5]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.151      ;
+; 2.136  ; counter:cnt|count[3]  ; counter:cnt|count[4]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.151      ;
+; 2.138  ; freq:freq_dut|cnt[12] ; freq:freq_dut|cnt[13] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138  ; freq:freq_dut|cnt[12] ; freq:freq_dut|cnt[14] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138  ; freq:freq_dut|cnt[12] ; freq:freq_dut|cnt[15] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138  ; freq:freq_dut|cnt[12] ; freq:freq_dut|cnt[16] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.153      ;
+; 2.138  ; freq:freq_dut|cnt[12] ; freq:freq_dut|cnt[17] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.153      ;
+; 2.143  ; counter:cnt|count[2]  ; counter:cnt|count[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.158      ;
+; 2.143  ; counter:cnt|count[2]  ; counter:cnt|count[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.158      ;
+; 2.143  ; counter:cnt|count[2]  ; counter:cnt|count[5]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.158      ;
+; 2.143  ; counter:cnt|count[2]  ; counter:cnt|count[4]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.158      ;
+; 2.150  ; freq:freq_dut|cnt[2]  ; freq:freq_dut|cnt[3]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[2]  ; freq:freq_dut|cnt[4]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[2]  ; freq:freq_dut|cnt[5]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[2]  ; freq:freq_dut|cnt[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[2]  ; freq:freq_dut|cnt[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[11] ; freq:freq_dut|cnt[13] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[11] ; freq:freq_dut|cnt[14] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[11] ; freq:freq_dut|cnt[15] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[11] ; freq:freq_dut|cnt[16] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[11] ; freq:freq_dut|cnt[17] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[1]  ; freq:freq_dut|cnt[3]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[1]  ; freq:freq_dut|cnt[4]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[1]  ; freq:freq_dut|cnt[5]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[1]  ; freq:freq_dut|cnt[6]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.150  ; freq:freq_dut|cnt[1]  ; freq:freq_dut|cnt[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.165      ;
+; 2.151  ; freq:freq_dut|cnt[24] ; freq:freq_dut|cnt[25] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.166      ;
+; 2.158  ; freq:freq_dut|cnt[19] ; freq:freq_dut|cnt[20] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.173      ;
+; 2.159  ; freq:freq_dut|cnt[13] ; freq:freq_dut|cnt[17] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.174      ;
+; 2.159  ; freq:freq_dut|cnt[8]  ; freq:freq_dut|cnt[12] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.174      ;
+; 2.163  ; freq:freq_dut|cnt[9]  ; freq:freq_dut|cnt[11] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.178      ;
+; 2.163  ; freq:freq_dut|cnt[14] ; freq:freq_dut|cnt[16] ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.178      ;
+; 2.165  ; freq:freq_dut|cnt[3]  ; freq:freq_dut|cnt[7]  ; clk                   ; clk         ; 0.000        ; 0.000      ; 2.180      ;
++--------+-----------------------+-----------------------+-----------------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'freq:freq_dut|clk_1hz'                                                                                                                 ;
++--------+----------------------+----------------------+-----------------------+-----------------------+--------------+------------+------------+
+; Slack  ; From Node            ; To Node              ; Launch Clock          ; Latch Clock           ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------+----------------------+-----------------------+-----------------------+--------------+------------+------------+
+; -0.310 ; counter:cnt|count[7] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 2.637      ;
+; -0.309 ; counter:cnt|count[0] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 2.638      ;
+; -0.288 ; counter:cnt|count[1] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 2.659      ;
+; -0.158 ; counter:cnt|count[1] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 2.789      ;
+; 0.132  ; counter:cnt|count[7] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.079      ;
+; 0.265  ; counter:cnt|count[5] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.212      ;
+; 0.277  ; counter:cnt|count[4] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.224      ;
+; 0.318  ; counter:cnt|count[6] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.265      ;
+; 0.492  ; counter:cnt|count[3] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.439      ;
+; 0.676  ; counter:cnt|count[2] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.623      ;
+; 0.741  ; counter:cnt|count[3] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.688      ;
+; 0.749  ; counter:cnt|count[1] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.696      ;
+; 0.794  ; counter:cnt|count[6] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.741      ;
+; 0.826  ; counter:cnt|count[1] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.773      ;
+; 0.960  ; counter:cnt|count[5] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.907      ;
+; 1.002  ; counter:cnt|count[4] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.949      ;
+; 1.050  ; counter:cnt|count[2] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 3.997      ;
+; 1.077  ; counter:cnt|count[5] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.024      ;
+; 1.099  ; counter:cnt|count[2] ; mux:mux3|data_out[1] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.046      ;
+; 1.175  ; counter:cnt|count[2] ; mux:mux3|data_out[2] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.122      ;
+; 1.264  ; counter:cnt|count[4] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.211      ;
+; 1.270  ; counter:cnt|count[7] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.217      ;
+; 1.388  ; counter:cnt|count[7] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.335      ;
+; 1.439  ; counter:cnt|count[3] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.386      ;
+; 1.440  ; counter:cnt|count[6] ; mux:mux3|data_out[3] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.387      ;
+; 1.520  ; mux:mux3|sel[1]      ; mux:mux3|data_out[0] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 1.535      ;
+; 1.525  ; mux:mux3|sel[1]      ; mux:mux3|data_out[3] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 1.540      ;
+; 1.543  ; mux:mux3|sel[0]      ; mux:mux3|data_out[2] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 1.558      ;
+; 1.721  ; counter:cnt|count[5] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.668      ;
+; 1.792  ; mux:mux3|sel[1]      ; mux:mux3|data_out[2] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 1.807      ;
+; 1.834  ; mux:mux3|sel[0]      ; mux:mux3|sel[1]      ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 1.849      ;
+; 1.908  ; counter:cnt|count[4] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.855      ;
+; 1.942  ; counter:cnt|count[3] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.889      ;
+; 2.050  ; counter:cnt|count[6] ; mux:mux3|data_out[0] ; clk                   ; freq:freq_dut|clk_1hz ; 0.000        ; 2.932      ; 4.997      ;
+; 2.139  ; mux:mux3|sel[1]      ; mux:mux3|sel[1]      ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 2.154      ;
+; 2.320  ; mux:mux3|sel[1]      ; mux:mux3|data_out[1] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 2.335      ;
+; 2.461  ; mux:mux3|sel[0]      ; mux:mux3|data_out[1] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 2.476      ;
+; 2.609  ; mux:mux3|sel[0]      ; mux:mux3|data_out[0] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 2.624      ;
+; 2.735  ; mux:mux3|sel[1]      ; mux:mux3|sel[0]      ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 2.750      ;
+; 2.870  ; mux:mux3|sel[0]      ; mux:mux3|data_out[3] ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 2.885      ;
+; 3.683  ; mux:mux3|sel[0]      ; mux:mux3|sel[0]      ; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 0.000        ; 0.000      ; 3.698      ;
++--------+----------------------+----------------------+-----------------------+-----------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'clk'                                                                             ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------+
+; -1.583 ; 1.000        ; 2.583          ; Port Rate        ; clk   ; Rise       ; clk                   ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; counter:cnt|count[0]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; counter:cnt|count[0]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; counter:cnt|count[1]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; counter:cnt|count[1]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; counter:cnt|count[2]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; counter:cnt|count[2]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; counter:cnt|count[3]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; counter:cnt|count[3]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; counter:cnt|count[4]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; counter:cnt|count[4]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; counter:cnt|count[5]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; counter:cnt|count[5]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; counter:cnt|count[6]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; counter:cnt|count[6]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; counter:cnt|count[7]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; counter:cnt|count[7]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|clk_1hz ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|clk_1hz ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[0]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[0]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[10] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[10] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[11] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[11] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[12] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[12] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[13] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[13] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[14] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[14] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[15] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[15] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[16] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[16] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[17] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[17] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[18] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[18] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[19] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[19] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[1]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[1]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[20] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[20] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[21] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[21] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[22] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[22] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[23] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[23] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[24] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[24] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[25] ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[25] ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[2]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[2]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[3]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[3]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[4]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[4]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[5]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[5]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[6]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[6]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[7]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[7]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[8]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[8]  ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; clk   ; Rise       ; freq:freq_dut|cnt[9]  ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; clk   ; Rise       ; freq:freq_dut|cnt[9]  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; clk|combout           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; clk|combout           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; cnt|count[0]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; cnt|count[0]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; cnt|count[1]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; cnt|count[1]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; cnt|count[2]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; cnt|count[2]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; cnt|count[3]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; cnt|count[3]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; cnt|count[4]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; cnt|count[4]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; cnt|count[5]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; cnt|count[5]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; cnt|count[6]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; cnt|count[6]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; cnt|count[7]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; cnt|count[7]|clk      ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; freq_dut|clk_1hz|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; freq_dut|clk_1hz|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; freq_dut|cnt[0]|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; freq_dut|cnt[0]|clk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; freq_dut|cnt[10]|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; freq_dut|cnt[10]|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; freq_dut|cnt[11]|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; freq_dut|cnt[11]|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; freq_dut|cnt[12]|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clk   ; Rise       ; freq_dut|cnt[12]|clk  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clk   ; Rise       ; freq_dut|cnt[13]|clk  ;
++--------+--------------+----------------+------------------+-------+------------+-----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Minimum Pulse Width: 'freq:freq_dut|clk_1hz'                                                                             ;
++--------+--------------+----------------+------------------+-----------------------+------------+-------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock                 ; Clock Edge ; Target                  ;
++--------+--------------+----------------+------------------+-----------------------+------------+-------------------------+
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|data_out[0]    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|data_out[0]    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|data_out[1]    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|data_out[1]    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|data_out[2]    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|data_out[2]    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|data_out[3]    ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|data_out[3]    ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|sel[0]         ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|sel[0]         ;
+; -1.318 ; 0.500        ; 1.818          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|sel[1]         ;
+; -1.318 ; 0.500        ; 1.818          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux:mux3|sel[1]         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; freq_dut|clk_1hz|regout ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; freq_dut|clk_1hz|regout ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux3|data_out[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux3|data_out[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux3|data_out[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux3|data_out[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux3|data_out[2]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux3|data_out[2]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux3|data_out[3]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux3|data_out[3]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux3|sel[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux3|sel[0]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; freq:freq_dut|clk_1hz ; Rise       ; mux3|sel[1]|clk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; freq:freq_dut|clk_1hz ; Rise       ; mux3|sel[1]|clk         ;
++--------+--------------+----------------+------------------+-----------------------+------------+-------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; rst_n     ; clk        ; 8.359  ; 8.359  ; Rise       ; clk             ;
+; step[*]   ; clk        ; 10.524 ; 10.524 ; Rise       ; clk             ;
+;  step[0]  ; clk        ; 9.471  ; 9.471  ; Rise       ; clk             ;
+;  step[1]  ; clk        ; 10.524 ; 10.524 ; Rise       ; clk             ;
+;  step[2]  ; clk        ; 10.483 ; 10.483 ; Rise       ; clk             ;
+;  step[3]  ; clk        ; 10.014 ; 10.014 ; Rise       ; clk             ;
+; up_down   ; clk        ; 10.698 ; 10.698 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; rst_n     ; clk        ; -8.307 ; -8.307 ; Rise       ; clk             ;
+; step[*]   ; clk        ; -8.430 ; -8.430 ; Rise       ; clk             ;
+;  step[0]  ; clk        ; -8.430 ; -8.430 ; Rise       ; clk             ;
+;  step[1]  ; clk        ; -9.561 ; -9.561 ; Rise       ; clk             ;
+;  step[2]  ; clk        ; -9.588 ; -9.588 ; Rise       ; clk             ;
+;  step[3]  ; clk        ; -9.143 ; -9.143 ; Rise       ; clk             ;
+; up_down   ; clk        ; -7.745 ; -7.745 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Clock to Output Times                                                                         ;
++----------------+-----------------------+--------+--------+------------+-----------------------+
+; Data Port      ; Clock Port            ; Rise   ; Fall   ; Clock Edge ; Clock Reference       ;
++----------------+-----------------------+--------+--------+------------+-----------------------+
+; seg[*]         ; freq:freq_dut|clk_1hz ; 16.316 ; 16.316 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[1]        ; freq:freq_dut|clk_1hz ; 15.947 ; 15.947 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[2]        ; freq:freq_dut|clk_1hz ; 15.941 ; 15.941 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[3]        ; freq:freq_dut|clk_1hz ; 15.945 ; 15.945 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[4]        ; freq:freq_dut|clk_1hz ; 16.316 ; 16.316 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[5]        ; freq:freq_dut|clk_1hz ; 16.302 ; 16.302 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[6]        ; freq:freq_dut|clk_1hz ; 15.869 ; 15.869 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[7]        ; freq:freq_dut|clk_1hz ; 15.864 ; 15.864 ; Rise       ; freq:freq_dut|clk_1hz ;
+; seg_select[*]  ; freq:freq_dut|clk_1hz ; 14.464 ; 14.464 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg_select[0] ; freq:freq_dut|clk_1hz ; 14.416 ; 14.416 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg_select[1] ; freq:freq_dut|clk_1hz ; 14.464 ; 14.464 ; Rise       ; freq:freq_dut|clk_1hz ;
++----------------+-----------------------+--------+--------+------------+-----------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                                 ;
++----------------+-----------------------+--------+--------+------------+-----------------------+
+; Data Port      ; Clock Port            ; Rise   ; Fall   ; Clock Edge ; Clock Reference       ;
++----------------+-----------------------+--------+--------+------------+-----------------------+
+; seg[*]         ; freq:freq_dut|clk_1hz ; 15.228 ; 15.228 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[1]        ; freq:freq_dut|clk_1hz ; 15.311 ; 15.311 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[2]        ; freq:freq_dut|clk_1hz ; 15.313 ; 15.313 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[3]        ; freq:freq_dut|clk_1hz ; 15.309 ; 15.309 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[4]        ; freq:freq_dut|clk_1hz ; 15.681 ; 15.681 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[5]        ; freq:freq_dut|clk_1hz ; 15.674 ; 15.674 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[6]        ; freq:freq_dut|clk_1hz ; 15.237 ; 15.237 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg[7]        ; freq:freq_dut|clk_1hz ; 15.228 ; 15.228 ; Rise       ; freq:freq_dut|clk_1hz ;
+; seg_select[*]  ; freq:freq_dut|clk_1hz ; 14.416 ; 14.416 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg_select[0] ; freq:freq_dut|clk_1hz ; 14.416 ; 14.416 ; Rise       ; freq:freq_dut|clk_1hz ;
+;  seg_select[1] ; freq:freq_dut|clk_1hz ; 14.464 ; 14.464 ; Rise       ; freq:freq_dut|clk_1hz ;
++----------------+-----------------------+--------+--------+------------+-----------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                           ;
++-----------------------+-----------------------+----------+----------+----------+----------+
+; From Clock            ; To Clock              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------------+-----------------------+----------+----------+----------+----------+
+; clk                   ; clk                   ; 1319     ; 0        ; 0        ; 0        ;
+; freq:freq_dut|clk_1hz ; clk                   ; 1        ; 1        ; 0        ; 0        ;
+; clk                   ; freq:freq_dut|clk_1hz ; 1134     ; 0        ; 0        ; 0        ;
+; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 26       ; 0        ; 0        ; 0        ;
++-----------------------+-----------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                            ;
++-----------------------+-----------------------+----------+----------+----------+----------+
+; From Clock            ; To Clock              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------------+-----------------------+----------+----------+----------+----------+
+; clk                   ; clk                   ; 1319     ; 0        ; 0        ; 0        ;
+; freq:freq_dut|clk_1hz ; clk                   ; 1        ; 1        ; 0        ; 0        ;
+; clk                   ; freq:freq_dut|clk_1hz ; 1134     ; 0        ; 0        ; 0        ;
+; freq:freq_dut|clk_1hz ; freq:freq_dut|clk_1hz ; 26       ; 0        ; 0        ; 0        ;
++-----------------------+-----------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 6     ; 6    ;
+; Unconstrained Input Port Paths  ; 69    ; 69   ;
+; Unconstrained Output Ports      ; 9     ; 9    ;
+; Unconstrained Output Port Paths ; 27    ; 27   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Sun Mar 31 20:56:12 2024
+Info: Command: quartus_sta counter -c counter
+Info: qsta_default_script.tcl version: #1
+Info (11104): Parallel Compilation has detected 20 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 14 of the 14 physical processors detected instead.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'counter.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name freq:freq_dut|clk_1hz freq:freq_dut|clk_1hz
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -5.155
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -5.155      -143.171 clk 
+    Info (332119):    -3.458       -16.670 freq:freq_dut|clk_1hz 
+Info (332146): Worst-case hold slack is -1.598
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.598        -1.598 clk 
+    Info (332119):    -0.310        -0.777 freq:freq_dut|clk_1hz 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.583
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.583       -93.843 clk 
+    Info (332119):    -1.318       -15.816 freq:freq_dut|clk_1hz 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4562 megabytes
+    Info: Processing ended: Sun Mar 31 20:56:13 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

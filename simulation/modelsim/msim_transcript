@@ -1,0 +1,18 @@
+# Reading D:/APP/altera/altera2/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do counter_run_msim_gate_verilog.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# ** Error: (vmap-20) Cannot access for writing file "D:\APP\altera\altera2\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini".
+# 
+# Permission denied. (errno = EACCES)
+# ** Warning: modelsim.ini and default modelsim.ini are the same file
+# Error in macro ./counter_run_msim_gate_verilog.do line 6
+# ** Error: (vmap-20) Cannot access for writing file "D:\APP\altera\altera2\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini".
+# 
+# Permission denied. (errno = EACCES)
+# ** Warning: modelsim.ini and default modelsim.ini are the same file
+#     while executing
+# "vmap work gate_work"
